@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1>Henlobenlo kedves Sage main!!</h1>
+            <br/>
+            <br/>
+            <h2>Tudom, hogy elfoglalt vagy és én sem akarok semmilyen határt átlépni, amivel kellemetlenné tennénk ezt az egészet csak szívesen találkoznék veled Panni megmondom az őszintét pl. egy forralt bort megihatunk vagy enni valamit, kitalálok én mindent csak érdekel, hogy te mit gondolsz!<br/><br/><span class="highlight">Tessék melegen öltözni, ha igen köszönöm!</span></h2>
+            <br/>
+            <br/>
+            <br/>
+            <img id="valentineImage" src="https://preview.redd.it/does-anyone-other-than-me-know-where-this-cat-is-from-lol-v0-img24gu05lfb1.jpg?width=1080&crop=smart&auto=webp&s=c3f0a1639fc3a21e04864423c108302d5a36ff8b" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yesButton">Szerda 18:00</button>
+            <button id="no">No</button>
+        </div>
+        <style>
+            body {
+                background-image: url(https://www.justinecelina.com/wp-content/uploads/2020/12/justinecelina_digital-blooms_december-2020_free-desktop-wallpaper-scaled.jpg);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                font-family: 'Playfair Display', serif;
+            }
+            div {
+                text-align: center;
+                vertical-align: middle;
+            }
+            h1 {
+                color: #000000;
+                font-weight: 1000;
+                font-size: 300%;
+            }
+            h2 {
+                color: #000000;
+            }
+            .highlight {
+                color: #7c0a02;
+                font-size: 150%;
+            }
+            button {
+                font-family: 'Playfair Display', serif;
+                font-size: 16px;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            #yesButton {
+                background-color: #efa0fa;
+                color: #fff;
+                margin-right: 10px;
+                margin-left: -140px;
+            }
+            #yesButton:hover {
+                background-color: #d680e0;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+            #no {
+                position: absolute;
+                background-color: #6e0707;
+                color: #fff;
+                margin-left: 10px;
+            }
+            #no:hover {
+                background-color: #8a0909;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+        </style>
+        <script>
+            document.getElementById("yesButton").addEventListener("click", celebrateYes);
+            function celebrateYes() {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                setTimeout(() => {
+                    alert("Akkor szerdán🥳");
+                }, 1000);
+            }
+            var yesButton = document.getElementById("yesButton");
+            var no = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+            var noTexts = ["Biztos?", "Ezt gondold át még egyszer szerintem", "Kérlek🥺", "Ne csináld :(", "Aludj rá még egyet szerintem :(", "Sírni fogok", "Miért üldözöd ezt a gombot annyira?", "Most komolyan :(", "Nem akarod te ezt megnyomni", "Ha sikerül rányomni esküszöm elfogadom a sorsom :)"];
+            var imageSources = ["https://pbs.twimg.com/media/Fyk7XMnaEAI3PsB.jpg", "https://media.tenor.com/BP70qe8X0J8AAAAe/crycat-crying-cat.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9e71v7IfFLLS_1CfY2it3an-6XH1uROjTfU5c88AwRL8aRkqAYDmoFrm9gpbUqwNameo&usqp=CAU", "https://i.pinimg.com/736x/cb/d8/3b/cbd83b534a315e809a9da2b8cd3ac3bf.jpg", "https://i.pinimg.com/222x/52/a9/44/52a94478ee4e05b734b0a0091d9a1387.jpg", "https://media.tenor.com/Y3j6d3RoSEoAAAAM/sad-cat-content-aware-scale.gif", "https://content.imageresizer.com/images/memes/Sad-Cat-Looking-At-Phone-meme-4.jpg", "https://media.tenor.com/mzeS2ySalF4AAAAM/yikes-cat.gif"];
+            
+            no.addEventListener("mouseover", change);
+            
+            function change() {
+                var randomIndex = Math.floor(Math.random() * noTexts.length);
+                var randomText = noTexts[randomIndex];
+                no.innerText = randomText;
+                var i = Math.floor(Math.random() * (window.innerWidth - no.offsetWidth));
+                var j = Math.floor(Math.random() * (window.innerHeight - no.offsetHeight));
+                no.style.left = i + "px";
+                no.style.top = j + "px";
+                var currentWidth = yesButton.offsetWidth;
+                var currentHeight = yesButton.offsetHeight
+                yesButton.style.width = currentWidth + 30 + "px";
+                yesButton.style.height = currentHeight + 10 + "px";
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+        </script>
+    </body>
+</html>
